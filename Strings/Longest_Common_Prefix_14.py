@@ -1,0 +1,22 @@
+LeetCode #14 – Longest Common Prefix
+Category: Strings
+Difficulty: Easy
+Approach: Vertical scanning using shortest string length
+Time: O(n * m)
+Space: O(1)
+
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+
+        if not strs:
+            return ""
+
+        for i in range(len(strs[0])):
+            char=strs[0][i]
+
+            for s in strs[1:]:
+                if i == len(s) or s[i] != char:
+                    return strs[0][:i]
+        
+        return strs[0]
+        
