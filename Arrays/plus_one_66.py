@@ -1,0 +1,25 @@
+"""
+LeetCode #66 – Plus One
+Category: Arrays
+Difficulty: Easy
+Approach: Right-to-left carry handling
+Time: O(n)
+Space: O(1)
+"""
+
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        carry = 1
+
+        for i in range(len(digits) - 1, -1, -1):
+            total = digits[i] + carry
+            digits[i] = total % 10
+            carry = total // 10
+
+            if carry == 0:
+                break
+
+        if carry:
+            digits.insert(0, 1)
+
+        return digits
